@@ -1,3 +1,37 @@
+@font-face {
+  font-family: "NanumSquareNeo";
+  src: url("../fonts/NanumSquareNeo-Variable.eot"),
+       url("../fonts/NanumSquareNeo-Variable.woff2") format("woff2"),
+       url("../fonts/NanumSquareNeo-Variable.woff") format("woff");
+}
+
+$color-theme: #005BD4;
+$color-light-gray: #bbb;
+$color-white: #fff;
+$font-neo: 'NanumSquareNeo';
+$font-size-large: 36px;
+$font-size-medium: 24px;
+$font-size-small: 12px;
+$font-weight-100: 100;
+$font-weight-300: 300;
+$font-weight-500: 500;
+$font-weight-700: 700;
+$font-weight-900: 900;
+
+@mixin style-button($size: 10px, $color: $color-light-gray) {
+  box-shadow: 0 $size 0 $color;
+  transform: translateY(0);
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover{
+    box-shadow: 0 0 0 $color;
+    transform: translateY($size);
+  }
+}
+
+
+
 // common
 @import './common/reset';
 @import './common/header';
@@ -12,3 +46,6 @@
 @import './sub/listCompletion';
 @import './sub/listSchedule';
 
+body{
+  font-family: $font-neo;
+}

@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "NanumSquareNeo";
+  src: url("../fonts/NanumSquareNeo-Variable.eot"), url("../fonts/NanumSquareNeo-Variable.woff2") format("woff2"), url("../fonts/NanumSquareNeo-Variable.woff") format("woff");
+}
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +15,100 @@ ul, ol, li {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+#index {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background-color: #005BD4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#index .inner {
+  width: 500px;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#index .inner h1 {
+  height: 40px;
+  text-align: center;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+}
+#index .inner h1 i {
+  width: 40px;
+  height: 100%;
+  fill: #fff;
+  margin-right: 10px;
+}
+#index .inner h1 span {
+  width: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 36px;
+  font-weight: 500;
+  font-variation-settings: "wght" 500;
+  color: #fff;
+  animation: index-logo 1s linear 1;
+}
+#index .inner ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 20px;
+}
+#index .inner ul li {
+  flex: 1;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 0 #bbb;
+  transform: translateY(0);
+  transition: 0.3s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+#index .inner ul li:hover {
+  box-shadow: 0 0 0 #bbb;
+  transform: translateY(10px);
+}
+#index .inner ul li span {
+  height: 20%;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 300;
+  font-variation-settings: "wght" 300;
+}
+#index .inner p {
+  margin-top: 50px;
+  font-size: 12px;
+  font-weight: 100;
+  font-variation-settings: "wght" 100;
+  line-height: 1;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+@keyframes index-logo {
+  0% {
+    max-width: 0;
+  }
+  100% {
+    max-width: 200px;
+  }
+}
+body {
+  font-family: "NanumSquareNeo";
 }
 
 /*# sourceMappingURL=style.css.map */
