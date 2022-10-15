@@ -23,10 +23,8 @@
       align-items: center;
     
       i{
-        width: 40px;
-        height: 100%;
-        fill: $color-white;
-        margin-right: 10px;
+        @include logo(40px, $color-white);
+        margin-right: 20px;
       }
 
       span{
@@ -34,8 +32,7 @@
         overflow: hidden;
         white-space: nowrap;
         font-size: $font-size-large;
-        font-weight: $font-weight-500;
-        font-variation-settings: 'wght' $font-weight-500;
+        @include font-weight(500);
         color: $color-white;
         animation: index-logo 1s linear 1;
       }
@@ -63,8 +60,7 @@
           height: 20%;
           text-align: center;
           font-size: $font-size-medium;
-          font-weight: $font-weight-300;
-          font-variation-settings: 'wght' $font-weight-300;
+          @include font-weight(300);
         }
       }
     }
@@ -72,8 +68,7 @@
     p{
       margin-top: 50px;
       font-size: $font-size-small;
-      font-weight: $font-weight-100;
-      font-variation-settings: 'wght' $font-weight-100;
+      @include font-weight(100);
       line-height: 1;
       color: $color-white;
       letter-spacing: 2px;
