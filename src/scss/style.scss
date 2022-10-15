@@ -1,5 +1,14 @@
+// common
 @import './common/reset';
 @import './common/header';
 @import './common/footer';
-@import './common/article';
+
+// main
+@import './main/indexSelect';
+
+// sub
+@import './sub/article';
+@import './sub/layout';
+@import './sub/listCompletion';
+@import './sub/listSchedule';
 
