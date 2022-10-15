@@ -1,5 +1,5 @@
-import './css/style.css';
-import IndexSelect from './components/main/IndexSelect';
+import 'css/style.css';
+import IndexSelect from 'components/main/IndexSelect';
 
 function App() {
   return (
