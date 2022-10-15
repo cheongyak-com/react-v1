@@ -24,7 +24,7 @@
     
       i{
         @include logo(40px, $color-white);
-        margin-right: 20px;
+        margin-right: 10px;
       }
 
       span{
@@ -52,15 +52,21 @@
         background-color: $color-white;
         border-radius: 20px;
         @include style-button(10px, $color-light-gray);
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
 
-        span{
-          height: 20%;
-          text-align: center;
-          font-size: $font-size-medium;
-          @include font-weight(300);
+        a{
+          display: block;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          
+          span{
+            height: 20%;
+            text-align: center;
+            font-size: $font-size-medium;
+            @include font-weight(300);
+          }
         }
       }
     }

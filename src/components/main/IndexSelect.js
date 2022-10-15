@@ -1,4 +1,5 @@
 import Logo from "components/common/Logo";
+import { Link } from 'react-router-dom';
 
 export default function IndexSelect() {
   return (
@@ -10,8 +11,16 @@ export default function IndexSelect() {
             <span>청약닷컴</span>
           </h1>
           <ul>
-            <li><span>청약예정지</span></li>
-            <li><span>청약완료지</span></li>
+            <li>
+              <Link to='/schedule'>
+                <span>청약예정지</span>
+              </Link>
+            </li>
+            <li>
+              <Link to='/completion'>
+                <span>청약완료지</span>
+              </Link>
+            </li>
           </ul>
           <p>2022 cheongyak.com &copy; All Right Reserved.</p>
         </div>
