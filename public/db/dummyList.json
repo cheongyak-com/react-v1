@@ -1,4 +1,21 @@
 {
+  "filterList": [
+    {
+      "key": "state",
+      "name": "분양상태",
+      "list": [ "분양예정", "분양중", "분양완료" ]
+    },
+    {
+      "key": "area",
+      "name": "지역",
+      "list": [ "검단신도시", "운정신도시" ]
+    },
+    {
+      "key": "type",
+      "name": "분양방식",
+      "list": [ "공공분양", "민간참여 공공분양", "민간분양", "임대" ]
+    }
+  ],
   "articleList": [
     {
       "title": "Here Comes Title1",

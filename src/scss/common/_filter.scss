@@ -39,21 +39,24 @@
     &::before{
       transform: rotate(0) translateX(-2px) translateY(10px);
     }
-    &::after{
-      content: '';
-      transform: scale(1.1) translate(-2px, -2px);
-    }
   }
 }
 
 #filter{
   width: 100%;
-  padding: 10px 0;
+  height: 0;
+  overflow: hidden;
   border-bottom: 1px solid $color-white-gray;
   transform: translateY(calc(-100%));
   transition: 1s;
 
+  &.on{
+    transform: translateY(0);
+    height: 100%;
+  }
+
   .inner{
+    padding: 10px 0;
 
     ul{
       width: 100%;

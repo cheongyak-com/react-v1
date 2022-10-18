@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 const root = document.getElementById('root');
 
 ReactDOM.createRoot(root).render(
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <App />
   </BrowserRouter>,
 );

@@ -85,17 +85,21 @@ header .inner h1 span {
 .btnFilter:hover::before {
   transform: rotate(0) translateX(-2px) translateY(10px);
 }
-.btnFilter:hover::after {
-  content: "";
-  transform: scale(1.1) translate(-2px, -2px);
-}
 
 #filter {
   width: 100%;
-  padding: 10px 0;
+  height: 0;
+  overflow: hidden;
   border-bottom: 1px solid #eee;
   transform: translateY(-100%);
   transition: 1s;
+}
+#filter.on {
+  transform: translateY(0);
+  height: 100%;
+}
+#filter .inner {
+  padding: 10px 0;
 }
 #filter .inner ul {
   width: 100%;
