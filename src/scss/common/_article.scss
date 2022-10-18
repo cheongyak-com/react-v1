@@ -45,12 +45,14 @@ article{
       margin-bottom: 5px;
     }
     .tags{
+      display: flex;
+      gap: 2px;
+      flex-wrap: wrap;
+
       span{
-        display: inline-block;
         padding: 2px;
         border: 1px solid $color-gray;
         border-radius: 3px;
-        margin-right: 5px;
         font-size: $font-size-small;
         color: $color-dark-gray;
 
@@ -70,5 +72,30 @@ article{
 
   &:hover{
     border-color: $color-theme;
+  }
+}
+
+@media screen and (max-width: $screen-size-tablet) {
+}
+
+@media screen and (max-width: $screen-size-mobile) {
+  article{
+    height: 130px;
+    display: flex;
+
+    .pic{
+      width: 130px;
+    }
+
+    .txt{
+      width: calc(100% - 130px);
+      height: 100%;
+
+      .tags{
+        span{
+          font-size: $font-size-smallest;
+        }
+      }
+    }
   }
 }

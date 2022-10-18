@@ -127,12 +127,15 @@ article .txt h3 {
   font-size: 16px;
   margin-bottom: 5px;
 }
+article .txt .tags {
+  display: flex;
+  gap: 2px;
+  flex-wrap: wrap;
+}
 article .txt .tags span {
-  display: inline-block;
   padding: 2px;
   border: 1px solid #888;
   border-radius: 3px;
-  margin-right: 5px;
   font-size: 12px;
   color: #444;
 }
@@ -149,6 +152,22 @@ article:hover {
   border-color: #005BD4;
 }
 
+@media screen and (max-width: 539px) {
+  article {
+    height: 130px;
+    display: flex;
+  }
+  article .pic {
+    width: 130px;
+  }
+  article .txt {
+    width: calc(100% - 130px);
+    height: 100%;
+  }
+  article .txt .tags span {
+    font-size: 11px;
+  }
+}
 .btnShowFilter {
   width: 50px;
   height: 50px;
@@ -350,18 +369,28 @@ article:hover {
   transform: translateY(10px);
 }
 #index .inner ul li a {
-  display: block;
   width: 100%;
   height: 100%;
   padding: 30px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  background-repeat: no-repeat;
 }
 #index .inner ul li a span {
   font-size: 24px;
   font-weight: 300;
   font-variation-settings: "wght" 300;
+}
+#index .inner ul li:nth-of-type(1) a {
+  background-size: 70%;
+  background-position: 60% 30%;
+  background-image: url("../img/index_icon_0.png");
+}
+#index .inner ul li:nth-of-type(2) a {
+  background-size: 60%;
+  background-position: 50% 30%;
+  background-image: url("../img/index_icon_2.png");
 }
 #index .inner p {
   margin-top: 50px;
@@ -385,7 +414,7 @@ article:hover {
 @media screen and (max-width: 539px) {
   #index .inner {
     width: 100%;
-    padding: 0 30px;
+    padding: 0 15px;
   }
   #index .inner ul {
     flex-direction: column;
@@ -393,6 +422,15 @@ article:hover {
   #index .inner ul li a {
     justify-content: flex-end;
     align-items: center;
+    padding: 8vw;
+  }
+  #index .inner ul li:nth-of-type(1) a {
+    background-size: 40%;
+    background-position: 20% 50%;
+  }
+  #index .inner ul li:nth-of-type(2) a {
+    background-size: 35%;
+    background-position: 20% 50%;
   }
   #index .inner p {
     letter-spacing: 0px;
@@ -407,6 +445,8 @@ main .inner {
 
 @media screen and (max-width: 1179px) {
   main .inner {
+    padding-left: 10px;
+    padding-right: 10px;
     grid-template-columns: 1fr 1fr;
   }
 }

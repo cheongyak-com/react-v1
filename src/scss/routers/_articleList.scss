@@ -10,6 +10,8 @@ main{
 @media screen and (max-width: $screen-size-tablet) {
   main{
     .inner{
+      padding-left: 10px;
+      padding-right: 10px;
       grid-template-columns: 1fr 1fr;
     }
   }
