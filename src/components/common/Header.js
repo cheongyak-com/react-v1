@@ -6,7 +6,7 @@ export default function Header() {
     <header>
       <div className="inner">
         <h1>
-          <Link to={'/'}>
+          <Link to='/'>
             <Logo></Logo>
             <span>청약닷컴</span>
           </Link>
