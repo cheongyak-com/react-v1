@@ -14,7 +14,7 @@ export default function Article(props) {
   return (
     <article>
       <div className="pic">
-        {props.imgSrc}
+        <img src={`${baseUrl}/img/${props.imgSrc}`} alt={props.title} />
       </div>
       <div className="txt">
         <h3>

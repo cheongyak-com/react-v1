@@ -8,9 +8,28 @@ article{
 
   .pic{
     width: 100%;
-    min-height: 200px;
+    height: 200px;
+    overflow: hidden;
     background-color: $color-light-gray;
+    filter: grayscale(0.6);
+    transition: 0.5s;
 
+    img{
+      width: 100%;
+      height: 100%;
+      image-rendering: -webkit-optimize-contrast;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    &:hover{
+      filter: grayscale(0);
+      img{
+        transform: scale(1.3) translateZ(0);
+      }
+    }
   }
 
   .txt{
