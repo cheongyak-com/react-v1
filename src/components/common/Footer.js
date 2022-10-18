@@ -1,5 +1,5 @@
 export default function Footer() {
   return (
-    <footer></footer>
+    <footer>2022 cheongyak.com &copy; All Right Reserved.</footer>
   );
 }

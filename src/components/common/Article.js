@@ -1,11 +1,16 @@
-export default function Article() {
+export default function Article(props) {
   return (
     <article>
       <div className="pic">
-        이미지 자리
+        {props.imgSrc}
       </div>
       <div className="txt">
-        글 자리
+        <h3>
+          {props.title}
+        </h3>
+        <p>
+          {props.children}
+        </p>
       </div>
     </article>
   );

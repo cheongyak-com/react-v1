@@ -6,12 +6,19 @@
 }
 
 $color-theme: #005BD4;
+$color-dark-gray: #444;
+$color-gray: #888;
 $color-light-gray: #bbb;
+$color-white-gray: #eee;
 $color-white: #fff;
+
 $font-neo: 'NanumSquareNeo';
 $font-size-large: 36px;
 $font-size-medium: 24px;
 $font-size-small: 12px;
+
+$screen-size-tablet: 1179px;
+$screen-size-mobile: 539px;
 
 @mixin font-weight($weight: 300) {
   font-weight: $weight;
@@ -19,9 +26,12 @@ $font-size-small: 12px;
 }
 
 @mixin logo($size: 40px, $color: $color-theme) {
+  display: block;
   width: $size;
   height: $size;
-  fill: $color-white;
+  font-size: $size;
+  line-height: $size;
+  fill: $color;
 }
 
 @mixin style-button($shadow-size: 10px, $color: $color-light-gray) {
@@ -41,16 +51,28 @@ $font-size-small: 12px;
 @import './common/reset';
 @import './common/header';
 @import './common/footer';
+@import './common/layout';
+@import './common/listVisual';
+@import './common/article';
+@import './common/filter';
 
-// main
-@import './main/indexSelect';
+// routers
+@import './routers/indexSelect';
+@import './routers/articleList';
 
-// sub
-@import './sub/article';
-@import './sub/layout';
-@import './sub/listCompletion';
-@import './sub/listSchedule';
 
 body{
   font-family: $font-neo;
+}
+
+.inner{
+  width: 1180px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: $screen-size-tablet) {
+  .inner{
+    width: 100%;
+    padding: 0 5px;
+  }
 }
