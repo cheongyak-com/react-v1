@@ -29,6 +29,7 @@ export default function Filter() {
 
   const baseUrl = process.env.PUBLIC_URL;
   useEffect(() => {
+    if (window.innerWidth >= 1180) setShowFilter(true);
     axios.get(`${baseUrl}/db/dummyList.json`).then((json)=>{
       setFilterList(json.data.filterList);
     })
