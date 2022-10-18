@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 export default function Filter() {
   return (
     <>
-      <i className="btnFilter">필터</i>
+      <i className="btnFilter"></i>
       <div id="filter">
         <div className="inner">
           <ul>

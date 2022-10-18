@@ -20,8 +20,9 @@ a {
 header {
   width: 100%;
   height: 50px;
-  margin-bottom: 10px;
   border-bottom: 1px solid #eee;
+  position: relative;
+  z-index: 5;
 }
 header .inner {
   height: 100%;
@@ -42,6 +43,7 @@ header .inner h1 i {
 }
 header .inner h1 span {
   font-size: 24px;
+  color: #000;
 }
 
 .btnFilter {
@@ -50,13 +52,49 @@ header .inner h1 span {
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+.btnFilter::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 4px;
+  height: 13px;
+  background-color: #000;
+  border-radius: 3px;
+  transform: rotate(-45deg) translateY(10px);
+  transition: 0.5s;
+}
+.btnFilter::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 4px solid #000;
+  border-radius: 50%;
+  background-color: #fff;
+  transform: translate(-3px, -3px);
+  transition: 0.5s;
+}
+.btnFilter:hover::before {
+  transform: rotate(-45deg) translateY(8px);
+}
+.btnFilter:hover::after {
+  content: "";
+  transform: scale(1.2) translate(-3px, -3px);
 }
 
 #filter {
   width: 100%;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  transform: translateY(-100%);
+  transition: 1s;
 }
 #filter .inner ul {
   width: 100%;
@@ -65,13 +103,14 @@ header .inner h1 span {
 }
 #filter .inner ul li {
   width: 100%;
-  padding: 2px 5px;
+  padding: 2px 4px;
   display: flex;
 }
 #filter .inner ul li span {
-  width: 15%;
+  width: 10%;
   padding: 7px 5px;
   color: #444;
+  font-size: 12px;
 }
 #filter .inner ul li ul {
   width: 90%;
@@ -85,6 +124,7 @@ header .inner h1 span {
   background-color: #eee;
   border-radius: 5px;
   color: #444;
+  font-size: 12px;
 }
 #filter .inner ul li ul li a.on {
   background-color: #005BD4;
