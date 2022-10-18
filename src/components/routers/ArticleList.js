@@ -25,7 +25,6 @@ export default function ArticleList(props) {
   
   return (
     <Layout>
-      <main>
         <div className="inner">
           {listData.map((data, i)=>{
             return (
@@ -39,7 +38,6 @@ export default function ArticleList(props) {
             );
           })}
         </div>
-      </main>
     </Layout>
   );
 }

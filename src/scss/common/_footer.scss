@@ -16,8 +16,13 @@ footer{
       text-align: center;
       font-style: normal;
       font-size: $font-size-small;
-      color: $color-dark-gray;
+      color: $color-gray;
       letter-spacing: 1px;
+
+      strong{
+        @include font-weight(500);
+        color: $color-theme;
+      }
     }
   }
 }

@@ -9,7 +9,9 @@ export default function Layout(props) {
       <Header></Header>
       <Filter></Filter>
       {/* <ListVisual></ListVisual> 추후사용 */}
+      <main>
         {props.children}
+      </main>
       <Footer></Footer>
     </>
   );

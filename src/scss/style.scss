@@ -67,14 +67,9 @@ $screen-size-mobile: 539px;
 body{
   font-family: $font-neo;
   width: 100%;
+  height: auto;
   min-height: 100vh;
-}
-
-#root{
-  min-height: 100vh;
-  padding-bottom: 50px;
   position: relative;
-  overflow: hidden;
 }
 
 .inner{

@@ -69,8 +69,19 @@ footer .inner address {
   text-align: center;
   font-style: normal;
   font-size: 12px;
-  color: #444;
+  color: #888;
   letter-spacing: 1px;
+}
+footer .inner address strong {
+  font-weight: 500;
+  font-variation-settings: "wght" 500;
+  color: #005BD4;
+}
+
+main {
+  height: 100%;
+  padding-bottom: 50px;
+  overflow: hidden;
 }
 
 article {
@@ -274,6 +285,7 @@ article:hover {
   width: 100%;
   height: 100vh;
   height: 100dvh;
+  overflow: hidden;
   background-color: #005BD4;
   display: flex;
   justify-content: center;
@@ -281,8 +293,9 @@ article:hover {
 }
 #index .inner {
   width: 500px;
-  height: 50%;
-  max-height: 450px;
+  height: 450px;
+  flex-shrink: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -340,13 +353,12 @@ article:hover {
   display: block;
   width: 100%;
   height: 100%;
+  padding: 30px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: flex-end;
 }
 #index .inner ul li a span {
-  height: 20%;
-  text-align: center;
   font-size: 24px;
   font-weight: 300;
   font-variation-settings: "wght" 300;
@@ -359,6 +371,7 @@ article:hover {
   line-height: 1;
   color: #fff;
   letter-spacing: 2px;
+  transition: 0.5s;
 }
 
 @keyframes index-logo {
@@ -367,6 +380,22 @@ article:hover {
   }
   100% {
     max-width: 200px;
+  }
+}
+@media screen and (max-width: 539px) {
+  #index .inner {
+    width: 100%;
+    padding: 0 30px;
+  }
+  #index .inner ul {
+    flex-direction: column;
+  }
+  #index .inner ul li a {
+    justify-content: flex-end;
+    align-items: center;
+  }
+  #index .inner p {
+    letter-spacing: 0px;
   }
 }
 main .inner {
@@ -389,14 +418,9 @@ main .inner {
 body {
   font-family: "NanumSquareNeo";
   width: 100%;
+  height: auto;
   min-height: 100vh;
-}
-
-#root {
-  min-height: 100vh;
-  padding-bottom: 50px;
   position: relative;
-  overflow: hidden;
 }
 
 .inner {

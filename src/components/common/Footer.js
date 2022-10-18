@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer>
       <div className="inner">
-        <address>2022 cheongyak.com &copy; All Right Reserved.</address>
+        <address>2022 <strong>cheongyak.com</strong> &copy; All Right Reserved.</address>
       </div>
     </footer>
   );

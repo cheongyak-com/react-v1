@@ -2,6 +2,7 @@
   width: 100%;
   height: 100vh;
   height: 100dvh;
+  overflow: hidden;
   background-color: $color-theme;
   display: flex;
   justify-content: center;
@@ -9,8 +10,9 @@
 
   .inner{
     width: 500px;
-    height: 50%;
-    max-height: 450px;
+    height: 450px;
+	  flex-shrink: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -58,13 +60,12 @@
           display: block;
           width: 100%;
           height: 100%;
+          padding: 30px;
           display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
+          justify-content: center;
+          align-items: flex-end;
 
           span{
-            height: 20%;
-            text-align: center;
             font-size: $font-size-medium;
             @include font-weight(300);
           }
@@ -79,6 +80,7 @@
       line-height: 1;
       color: $color-white;
       letter-spacing: 2px;
+      transition: 0.5s;
     }
   }
 }
@@ -89,5 +91,26 @@
   }
   100% {
     max-width: 200px;
+  }
+}
+
+@media screen and (max-width: $screen-size-mobile) {
+  #index{
+    .inner{
+      width: 100%;
+      padding: 0 30px;
+      ul{
+        flex-direction: column;
+        li{
+          a{
+            justify-content: flex-end;
+            align-items: center;
+          }
+        }
+      }
+      p{
+        letter-spacing: 0px;
+      }
+    }
   }
 }
