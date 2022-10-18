@@ -1,0 +1,55 @@
+article{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border: 1px solid $color-white-gray;
+  border-radius: 10px;
+  transition: 0.5s;
+
+  .pic{
+    width: 100%;
+    min-height: 200px;
+    background-color: $color-light-gray;
+
+  }
+
+  .txt{
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h3{
+      font-size: $font-size-regular;
+      margin-bottom: 5px;
+    }
+    .tags{
+      span{
+        display: inline-block;
+        padding: 2px;
+        border: 1px solid $color-gray;
+        border-radius: 3px;
+        margin-right: 5px;
+        font-size: $font-size-small;
+        color: $color-dark-gray;
+
+        &[data-state="1"]{  // 분양중
+          border: 1px solid $color-theme;
+          background-color: $color-theme;
+          color: $color-white;
+        }
+
+        &[data-state="2"]{  // 분양완료
+          background-color: $color-gray;
+          color: $color-white;
+        }
+      }
+    }
+  }
+
+  &:hover{
+    border-color: $color-theme;
+  }
+}

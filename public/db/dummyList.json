@@ -1,6 +1,6 @@
 {
   "filterList": [
-    {
+    { 
       "key": "state",
       "name": "분양상태",
       "list": [ "분양예정", "분양중", "분양완료" ]
@@ -20,47 +20,74 @@
     {
       "title": "Here Comes Title1",
       "desc": "Here Comes Description1",
-      "imgSrc": "img1.jpg"
+      "imgSrc": "img1.jpg",
+      "state": "2",
+      "area": "0",
+      "type": "1"
     },
     {
       "title": "Here Comes Title2",
       "desc": "Here Comes Description2",
-      "imgSrc": "img2.jpg"
+      "imgSrc": "img2.jpg",
+      "state": "1",
+      "area": "0",
+      "type": "2"
     },
     {
       "title": "Here Comes Title3",
       "desc": "Here Comes Description3",
-      "imgSrc": "img3.jpg"
+      "imgSrc": "img3.jpg",
+      "state": "0",
+      "area": "1",
+      "type": "1"
     },
     {
       "title": "Here Comes Title",
       "desc": "Here Comes Description",
-      "imgSrc": "img.jpg"
+      "imgSrc": "img.jpg",
+      "state": "1",
+      "area": "0",
+      "type": "2"
     },
     {
       "title": "Here Comes Title",
       "desc": "Here Comes Description",
-      "imgSrc": "img.jpg"
+      "imgSrc": "img.jpg",
+      "state": "2",
+      "area": "1",
+      "type": "1"
     },
     {
       "title": "Here Comes Title",
       "desc": "Here Comes Description",
-      "imgSrc": "img.jpg"
+      "imgSrc": "img.jpg",
+      "state": "0",
+      "area": "0",
+      "type": "0"
     },
     {
       "title": "Here Comes Title",
       "desc": "Here Comes Description",
-      "imgSrc": "img.jpg"
+      "imgSrc": "img.jpg",
+      "state": "1",
+      "area": "1",
+      "type": "3"
     },
     {
       "title": "Here Comes Title",
       "desc": "Here Comes Description",
-      "imgSrc": "img.jpg"
+      "imgSrc": "img.jpg",
+      "state": "2",
+      "area": "0",
+      "type": "3"
     },
     {
       "title": "Here Comes Title",
       "desc": "Here Comes Description",
-      "imgSrc": "img.jpg"
+      "imgSrc": "img.jpg",
+      "state": "0",
+      "area": "1",
+      "type": "0"
     }
   ]
 }

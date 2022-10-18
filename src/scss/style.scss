@@ -16,6 +16,7 @@ $color-white: #fff;
 $font-neo: 'NanumSquareNeo';
 $font-size-large: 36px;
 $font-size-medium: 24px;
+$font-size-regular: 16px;
 $font-size-small: 12px;
 
 $screen-size-tablet: 1179px;
@@ -49,21 +50,30 @@ $screen-size-mobile: 539px;
 
 
 // common
-@import './common/reset';
-@import './common/header';
-@import './common/footer';
-@import './common/layout';
-@import './common/listVisual';
-@import './common/article';
-@import './common/filter';
+@import './common/reset.scss';
+@import './common/header.scss';
+@import './common/footer.scss';
+@import './common/layout.scss';
+@import './common/listVisual.scss';
+@import './common/article.scss';
+@import './common/filter.scss';
 
 // routers
-@import './routers/indexSelect';
-@import './routers/articleList';
+@import './routers/indexSelect.scss';
+@import './routers/articleList.scss';
 
 
 body{
   font-family: $font-neo;
+  width: 100%;
+  min-height: 100vh;
+}
+
+#root{
+  min-height: 100vh;
+  padding-bottom: 50px;
+  position: relative;
+  overflow: hidden;
 }
 
 .inner{

@@ -5,16 +5,26 @@ import axios from 'axios';
 
 export default function Filter() {
   const [ searchParams, setSearchParams ] = useSearchParams();
-  const [ filterList, setFilterList ] = useState();
+  const [ showFilter, setShowFilter ] = useState(false);
+  const [ filterList, setFilterList ] = useState(null);
   const params = {
-    state: searchParams.get('state') || '',
-    area: searchParams.get('area') || '',
-    type: searchParams.get('type') || ''
+    'state': searchParams.get('state') || '',
+    'area': searchParams.get('area') || '',
+    'type': searchParams.get('type') || ''
   }
 
   const handleClick = (e, key, value) => {
     e.preventDefault();
-    setSearchParams({...params, [key]: value});
+    if (params[key+''] !== value + '') {
+      setSearchParams({...params, [key]: value});
+    } else {
+      setSearchParams({...params, [key]: ''});
+    }
+  }
+
+  const handleReset = (e) => {
+    e.preventDefault();
+    setSearchParams({});
   }
 
   const baseUrl = process.env.PUBLIC_URL;
@@ -24,10 +34,14 @@ export default function Filter() {
     })
   }, [])
 
+  const handleFilter = () => {
+    !showFilter ? setShowFilter(true) : setShowFilter(false) ;
+  }
+
   return (
     <>
-      <i className="btnFilter"></i>
-      <div id="filter" className='on'>
+      <i className={`btnShowFilter ${showFilter ? 'on' : null}`} onClick={handleFilter}></i>
+      <div id="filter" className={showFilter ? 'on' : null}>
         <div className="inner">
           <ul>
             {filterList && filterList.map((filter, i)=>{
@@ -35,10 +49,6 @@ export default function Filter() {
                 <li key={i}>
                   <span>{filter.name}</span>
                   <ul>
-                    <li><Link 
-                      onClick={(e)=>{handleClick(e, filter.key, '')}}
-                      className={params[filter.key] === '' ? 'on' : null}
-                    >전체</Link></li>
                     {filter && filter.list.map((sub, j)=>{
                       return (
                         <li key={j}><Link 
@@ -52,6 +62,7 @@ export default function Filter() {
               );
             })}
           </ul>
+          <Link onClick={handleReset} className='btnResetFilter'>초기화</Link>
         </div>
       </div>
     </>

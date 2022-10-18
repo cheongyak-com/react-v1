@@ -1,0 +1,24 @@
+main{
+  .inner{
+    padding: 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: $screen-size-tablet) {
+  main{
+    .inner{
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media screen and (max-width: $screen-size-mobile) {
+  main{
+    .inner{
+      grid-template-columns: 1fr;
+    }
+  }
+}
