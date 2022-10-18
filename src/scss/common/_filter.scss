@@ -37,11 +37,11 @@
 
   &:hover{
     &::before{
-      transform: rotate(-45deg) translateY(8px);
+      transform: rotate(0) translateX(-2px) translateY(10px);
     }
     &::after{
       content: '';
-      transform: scale(1.2) translate(-3px, -3px);
+      transform: scale(1.1) translate(-2px, -2px);
     }
   }
 }
