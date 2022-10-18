@@ -31,10 +31,13 @@ header .inner {
 }
 header .inner h1 {
   height: 100%;
+}
+header .inner h1 a {
+  height: 100%;
   display: flex;
   align-items: center;
 }
-header .inner h1 i {
+header .inner h1 a i {
   display: block;
   width: 30px;
   height: 30px;
@@ -43,7 +46,7 @@ header .inner h1 i {
   fill: #005BD4;
   margin-right: 5px;
 }
-header .inner h1 span {
+header .inner h1 a span {
   font-size: 24px;
   color: #000;
 }
