@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react-v1/static/css/main.853b59f6.css",
+    "main.css": "/react-v1/static/css/main.d7abd352.css",
     "main.js": "/react-v1/static/js/main.809edf5a.js",
     "static/js/787.752b4ed4.chunk.js": "/react-v1/static/js/787.752b4ed4.chunk.js",
     "static/media/NanumSquareNeo-Variable.eot": "/react-v1/static/media/NanumSquareNeo-Variable.c6f4d2fed142144c5bda.eot",
@@ -8,12 +8,12 @@
     "static/media/NanumSquareNeo-Variable.woff2": "/react-v1/static/media/NanumSquareNeo-Variable.1ec64c4f932f64914ebd.woff2",
     "static/media/logo.svg": "/react-v1/static/media/logo.37d7e35098e8060ea64629622c0c9477.svg",
     "index.html": "/react-v1/index.html",
-    "main.853b59f6.css.map": "/react-v1/static/css/main.853b59f6.css.map",
+    "main.d7abd352.css.map": "/react-v1/static/css/main.d7abd352.css.map",
     "main.809edf5a.js.map": "/react-v1/static/js/main.809edf5a.js.map",
     "787.752b4ed4.chunk.js.map": "/react-v1/static/js/787.752b4ed4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.853b59f6.css",
+    "static/css/main.d7abd352.css",
     "static/js/main.809edf5a.js"
   ]
 }
