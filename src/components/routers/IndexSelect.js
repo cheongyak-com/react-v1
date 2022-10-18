@@ -12,12 +12,12 @@ export default function IndexSelect() {
           </h1>
           <ul>
             <li>
-              <Link to='/list/schedule'>
+              <Link to='/list?state=0'>
                 <span>청약예정지</span>
               </Link>
             </li>
             <li>
-              <Link to='/list/completed'>
+              <Link to='/list?state=2'>
                 <span>청약완료지</span>
               </Link>
             </li>

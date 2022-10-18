@@ -8,7 +8,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<IndexSelect />} />
-      <Route path="/list/:done" exct="false" element={<ArticleList />} />
+      <Route path="/list" exct="false" element={<ArticleList />} />
     </Routes>
   );
 }
