@@ -458,11 +458,12 @@ article:hover {
   width: 100%;
 }
 #content figure {
-  height: 30vw;
+  height: 30vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  border-bottom: 1px solid #eee;
 }
 #content figure::before {
   content: "";
@@ -477,11 +478,16 @@ article:hover {
 #content figure .txt {
   width: 100%;
   height: 100%;
+  padding: 5vh 0;
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+}
+#content figure .txt .date {
+  font-size: 16px;
+  color: #fff;
 }
 #content figure .txt h1 {
   font-size: 36px;
@@ -495,8 +501,63 @@ article:hover {
   padding: 5px;
   background-color: #fff;
   border-radius: 5px;
+  font-size: 16px;
   color: #444;
 }
+#content .inner {
+  padding-bottom: 50px;
+}
+#content .inner .tabMenu {
+  width: 100%;
+  display: flex;
+}
+#content .inner .tabMenu li {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #888;
+  color: #444;
+  cursor: pointer;
+}
+#content .inner .tabMenu li.on {
+  border-bottom: 3px solid #005BD4;
+  color: #005BD4;
+  font-weight: 500;
+  font-variation-settings: "wght" 500;
+}
+#content .inner .tabBody {
+  padding: 20px 0;
+}
+#content .inner .tabBody > div {
+  height: 0;
+  overflow: hidden;
+}
+#content .inner .tabBody > div table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 1px solid #bbb;
+}
+#content .inner .tabBody > div table tbody tr th {
+  width: 150px;
+  padding: 15px;
+  background-color: #eee;
+  border-bottom: 1px solid #bbb;
+  color: #444;
+}
+#content .inner .tabBody > div table tbody tr td {
+  border-bottom: 1px solid #bbb;
+  padding: 15px;
+  color: #444;
+}
+#content .inner .tabBody > div #map {
+  width: 100%;
+  height: 50vh;
+  border: 1px solid #bbb;
+}
+#content .inner .tabBody > div.on {
+  height: auto;
+}
+
 body {
   font-family: "NanumSquareNeo";
   width: 100%;

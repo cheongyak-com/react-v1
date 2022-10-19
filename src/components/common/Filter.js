@@ -7,13 +7,15 @@ export default function Filter() {
   const [ searchParams, setSearchParams ] = useSearchParams();
   const [ showFilter, setShowFilter ] = useState(false);
   const [ filterList, setFilterList ] = useState(null);
+  const baseUrl = useRef(process.env.PUBLIC_URL);
+  const param = useRef(useLocation().pathname);
+
   const queries = {
     'state': searchParams.get('state') || '',
     'area': searchParams.get('area') || '',
     'type': searchParams.get('type') || ''
   }
 
-  const param = useLocation().pathname;
 
   const handleClick = (e, key, value) => {
     e.preventDefault();
@@ -29,7 +31,6 @@ export default function Filter() {
     setSearchParams({});
   }
 
-  const baseUrl = useRef(process.env.PUBLIC_URL);
   useEffect(() => {
     if (param === '/list' && window.innerWidth >= 1180) setShowFilter(true);
     axios.get(`${baseUrl.current}/db/dummyList.json`).then((json)=>{

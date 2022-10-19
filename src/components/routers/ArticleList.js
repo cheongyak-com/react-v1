@@ -24,7 +24,7 @@ export default function ArticleList() {
               <Article key={i} 
                 id={i} 
                 title={data.title} 
-                imgSrc={data.imgSrc} 
+                imgSrc={data.thumbnail} 
                 state={data.state} 
                 area={data.area} 
                 type={data.type} 
