@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-v1/static/css/main.f358871e.css",
-    "main.js": "/react-v1/static/js/main.66384aa9.js",
+    "main.css": "/react-v1/static/css/main.532740cc.css",
+    "main.js": "/react-v1/static/js/main.0992f4f8.js",
     "static/js/787.752b4ed4.chunk.js": "/react-v1/static/js/787.752b4ed4.chunk.js",
     "static/media/NanumSquareNeo-Variable.eot": "/react-v1/static/media/NanumSquareNeo-Variable.c6f4d2fed142144c5bda.eot",
     "static/media/NanumSquareNeo-Variable.woff": "/react-v1/static/media/NanumSquareNeo-Variable.d80ae48b60611b9cbb57.woff",
@@ -10,12 +10,12 @@
     "static/media/index_icon_0.png": "/react-v1/static/media/index_icon_0.ecc15b860e1c9aa0c119.png",
     "static/media/logo.svg": "/react-v1/static/media/logo.37d7e35098e8060ea64629622c0c9477.svg",
     "index.html": "/react-v1/index.html",
-    "main.f358871e.css.map": "/react-v1/static/css/main.f358871e.css.map",
-    "main.66384aa9.js.map": "/react-v1/static/js/main.66384aa9.js.map",
+    "main.532740cc.css.map": "/react-v1/static/css/main.532740cc.css.map",
+    "main.0992f4f8.js.map": "/react-v1/static/js/main.0992f4f8.js.map",
     "787.752b4ed4.chunk.js.map": "/react-v1/static/js/787.752b4ed4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f358871e.css",
-    "static/js/main.66384aa9.js"
+    "static/css/main.532740cc.css",
+    "static/js/main.0992f4f8.js"
   ]
 }
