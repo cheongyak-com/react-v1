@@ -1,7 +1,8 @@
+import React from 'react';
 import 'css/style.css';
 import { Route, Routes } from 'react-router-dom';
-import IndexSelect from 'components/routers/IndexSelect';
-import ArticleList from 'components/routers/ArticleList';
+import IndexSelect from 'components/routers/IndexSelect.js';
+import ArticleList from 'components/routers/ArticleList.js';
 
 
 function App() {
