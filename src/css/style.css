@@ -435,7 +435,7 @@ article:hover {
     letter-spacing: 0px;
   }
 }
-main .inner {
+#list .inner {
   padding: 20px 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -443,17 +443,31 @@ main .inner {
 }
 
 @media screen and (max-width: 1179px) {
-  main .inner {
+  #list .inner {
     padding-left: 10px;
     padding-right: 10px;
     grid-template-columns: 1fr 1fr;
   }
 }
 @media screen and (max-width: 539px) {
-  main .inner {
+  #list .inner {
     grid-template-columns: 1fr;
   }
 }
+#content {
+  width: 100%;
+}
+#content figure {
+  height: 30vw;
+}
+#content figure h1 {
+  font-size: 36px;
+}
+#content .inner {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   font-family: "NanumSquareNeo";
   width: 100%;

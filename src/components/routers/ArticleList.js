@@ -1,23 +1,15 @@
 import axios from 'axios';
 import Layout from "components/common/Layout";
 import Article from "components/common/Article";
-import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
 
-export default function ArticleList(props) {
+export default function ArticleList() {
   const [ listData, setList ] = useState([]);
-  const [ searchParams, setSearchParams ] = useSearchParams();
-  const params = {
-    state: searchParams.get('state') || '',
-    area: searchParams.get('area') || '',
-    type: searchParams.get('type') || ''
-  }
 
-  const baseUrl = `${process.env.PUBLIC_URL}`;
+  const baseUrl = useRef(process.env.PUBLIC_URL);
 
   useEffect(()=>{
-    
-    axios.get(`${baseUrl}/db/dummyList.json`).then((json)=>{
+    axios.get(`${baseUrl.current}/db/dummyList.json`).then((json)=>{
       setList(json.data.articleList);
     })
   }, [])
@@ -25,10 +17,12 @@ export default function ArticleList(props) {
   
   return (
     <Layout>
+      <div id="list">
         <div className="inner">
           {listData.map((data, i)=>{
             return (
               <Article key={i} 
+                id={i} 
                 title={data.title} 
                 imgSrc={data.imgSrc} 
                 state={data.state} 
@@ -38,6 +32,7 @@ export default function ArticleList(props) {
             );
           })}
         </div>
+      </div>
     </Layout>
   );
 }

@@ -1,12 +1,13 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Article(props) {
 
   const [ filterList, setFilterList ] = useState(null);
-  const baseUrl = process.env.PUBLIC_URL;
+  const baseUrl = useRef(process.env.PUBLIC_URL);
   useEffect(() => {
-    axios.get(`${baseUrl}/db/dummyList.json`).then((json)=>{
+    axios.get(`${baseUrl.current}/db/dummyList.json`).then((json)=>{
       setFilterList(json.data.filterList);
     })
   }, [])
@@ -14,7 +15,9 @@ export default function Article(props) {
   return (
     <article>
       <div className="pic">
-        <img src={`${baseUrl}/img/${props.imgSrc}`} alt={props.title} />
+        <Link to={`/content?id=${props.id}`}>
+          <img src={`${baseUrl.current}/img/${props.imgSrc}`} alt={props.title} />
+        </Link>
       </div>
       <div className="txt">
         <h3>
