@@ -24,11 +24,15 @@ export default function Content(props) {
       {contentData && filterList &&
       <div id="content">
         <figure style={{backgroundImage: `url(${baseUrl.current}/img/${contentData.imgSrc})`}}>
-          <h1>{contentData.title}</h1>
-          <div className="tags">
-            <span>{filterList[0].list[contentData.state]}</span>
-            <span>{filterList[1].list[contentData.area]}</span>
-            <span>{filterList[2].list[contentData.type]}</span>
+          <div className="txt">
+            <div className="date">
+              {contentData.dateGonggo}-{contentData.dateAnnouncement} {filterList[0].list[contentData.state]}
+            </div>
+            <h1>{contentData.title}</h1>
+            <div className="tags">
+              <span>#{filterList[1].list[contentData.area]}</span>
+              <span>#{filterList[2].list[contentData.type]}</span>
+            </div>
           </div>
         </figure>
         <div className="inner">
