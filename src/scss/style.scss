@@ -71,6 +71,7 @@ body{
   height: auto;
   min-height: 100vh;
   position: relative;
+  overscroll-behavior: none;
 }
 
 .inner{
