@@ -46,7 +46,7 @@
   },
   "homepage": "https://cheongyak-com.github.io/react-v1/",
   "devDependencies": {
-    "react-scripts": "5.0.1",
-    "gh-pages": "^4.0.0"
+    "gh-pages": "^4.0.0",
+    "react-scripts": "^5.0.1"
   }
 }
