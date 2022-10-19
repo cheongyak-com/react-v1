@@ -211,7 +211,6 @@ article:hover {
   height: 0;
   overflow: hidden;
   background-color: #eee;
-  border-bottom: 1px solid #eee;
 }
 #filter.on {
   height: auto;
