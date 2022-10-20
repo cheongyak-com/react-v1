@@ -59,6 +59,8 @@ $screen-size-mobile: 539px;
 @import './common/listVisual.scss';
 @import './common/article.scss';
 @import './common/filter.scss';
+@import './common/map.scss';
+@import './common/gallery.scss';
 
 // routers
 @import './routers/indexSelect.scss';
@@ -83,6 +85,5 @@ body{
 @media screen and (max-width: $screen-size-tablet) {
   .inner{
     width: 100%;
-    padding: 0 5px;
   }
 }

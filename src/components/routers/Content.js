@@ -3,8 +3,10 @@ import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import Layout from 'components/common/Layout';
 import Map from 'components/common/Map';
+import ContentPicture from 'components/common/ContentPicture';
 
 export default function Content() {
+  const { naver } = window;
   const [ ContentData, setContent ] = useState([]);
   const [ FilterList, setFilterList ] = useState(null);
   const [ TabIndex, setTabIndex ] = useState(0);
@@ -43,12 +45,14 @@ export default function Content() {
         <div className='inner'>
           <ul className='tabMenu'>
             <li className={TabIndex === 0 ? 'on' : undefined} onClick={()=>setTabIndex(0)}>정보</li>
-            {/* <li className={TabIndex === 1 ? 'on' : undefined} onClick={()=>setTabIndex(1)}>면적</li> */}
+            {ContentData.state === 2 &&
+              <li className={TabIndex === 1 ? 'on' : undefined} onClick={()=>setTabIndex(1)}>결과</li>
+            }
             <li className={TabIndex === 2 ? 'on' : undefined} onClick={()=>setTabIndex(2)}>사진</li>
             <li className={TabIndex === 3 ? 'on' : undefined} onClick={()=>setTabIndex(3)}>위치</li>
           </ul>
           <div className="tabBody">
-            <div className={TabIndex === 0 ? 'on' : undefined}>
+            <div>
               <table>
                 <tbody>
                   {ContentData.state === '0' ? 
@@ -94,19 +98,20 @@ export default function Content() {
                 </tbody>
               </table>
             </div>
-            {/* <div className={TabIndex === 1 ? 'on' : undefined}>
-            </div> */}
-            <div className={TabIndex === 2 ? 'on' : undefined}>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
+            {ContentData.state === 2 &&
+              <div>
+              </div>
+            }
+            <div >
+              <div id="gallery">
+                <ContentPicture></ContentPicture>
+                <ContentPicture></ContentPicture>
+                <ContentPicture></ContentPicture>
+                <ContentPicture></ContentPicture>
+              </div>
             </div>
-            <div className={TabIndex === 3 ? 'on' : undefined}>
-              <Map latLng={ContentData.latLng} tabIndex={TabIndex}></Map>
+            <div>
+              <Map latLng={ContentData.latLng} naver={naver}></Map>
             </div>
           </div>
         </div>

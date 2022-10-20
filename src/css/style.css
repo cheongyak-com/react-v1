@@ -299,6 +299,40 @@ article:hover {
     position: relative;
   }
 }
+#react-naver-map {
+  width: 100%;
+  height: 50vh;
+  border: 1px solid #bbb;
+}
+
+@media screen and (max-width: 1179px) {
+  #react-naver-map {
+    border-left: 0;
+    border-right: 0;
+  }
+}
+#gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 20px 0;
+}
+#gallery div {
+  width: 100%;
+  height: 30vw;
+  background-color: #eee;
+  border: 1px solid #bbb;
+}
+
+@media screen and (max-width: 1179px) {
+  #gallery {
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
+  }
+  #gallery div {
+    height: 40vw;
+  }
+}
 #index {
   width: 100%;
   height: 100vh;
@@ -529,7 +563,6 @@ article:hover {
   padding: 20px 0;
 }
 #content .inner .tabBody > div {
-  height: 0;
   overflow: hidden;
 }
 #content .inner .tabBody > div table {
@@ -549,14 +582,6 @@ article:hover {
   padding: 15px;
   color: #444;
 }
-#content .inner .tabBody > div #map {
-  width: 100%;
-  height: 50vh;
-  border: 1px solid #bbb;
-}
-#content .inner .tabBody > div.on {
-  height: auto;
-}
 
 body {
   font-family: "NanumSquareNeo";
@@ -575,7 +600,6 @@ body {
 @media screen and (max-width: 1179px) {
   .inner {
     width: 100%;
-    padding: 0 5px;
   }
 }
 

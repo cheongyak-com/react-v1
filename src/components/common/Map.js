@@ -1,38 +1,33 @@
-import { useEffect, useRef, useState } from "react";
+import { NaverMap, Marker,  RenderAfterNavermapsLoaded } from 'react-naver-maps';
 
 export default function Map(props) {
-  const { naver } = window;
-  const container = useRef(null);
-  const [ Location, setLocation ] = useState(null);
-
+  const naver = props.naver;
   const curLng = props.latLng.split(',');
 
-  useEffect(()=>{
-    const mapInstance = new naver.maps.Map(container.current, {
-      center: new naver.maps.LatLng(curLng[0],curLng[1]),
-      zoom: 15
-    });
-
-    const marker = new naver.maps.Marker({
-      position: new naver.maps.LatLng(curLng[0],curLng[1]),
-      map: mapInstance
-    });
-
-    marker.setPosition(marker.position);
-    setLocation(mapInstance);
-
-    return () => {
-      container.current.innerHTML = '';
-    }
-  }, [])
-
-  window.addEventListener('resize', ()=>{
-    Location.setCenter(curLng[0],curLng[1]);
-  })
-
   return (
-    <>
-    <div id="map" ref={container}></div>
-    </>
+    <RenderAfterNavermapsLoaded
+      ncpClientId='stthahnyy0'
+      error={<p>Maps Load Error</p>}
+      loading={<p>Maps Loading...</p>}
+    >
+      {naver && <NaverMap
+        mapDivId="map"
+        defaultCenter={{ lat: curLng[0], lng: curLng[1] }}
+        defaultZoom={16}
+        zoomControl={true} // 지도 zoom 허용
+        zoomControlOptions={{ //줌 컨트롤의 옵션
+          position: naver.maps.Position.TOP_RIGHT
+        }}
+      >
+      <Marker 
+        position={new naver.maps.LatLng(curLng[0], curLng[1])}
+        animation={naver.maps.Animation.BOUNCE}
+        onClick={() => {
+          alert('여기는 네이버 입니다.')
+        }}
+      />
+      </NaverMap>
+      }
+    </RenderAfterNavermapsLoaded>
   );
 }
