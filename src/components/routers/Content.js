@@ -98,6 +98,7 @@ export default function Content() {
                       to={ContentData.webSiteUrl} 
                       target='_blank'>
                         {ContentData.webSiteUrl}
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
                       </Link>
                     </td>
                   </tr>

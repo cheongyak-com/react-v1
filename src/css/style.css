@@ -608,8 +608,13 @@ body {
     width: 100%;
   }
 }
-.linkTargetBlank::after {
-  content: "";
+.linkTargetBlank i {
+  margin-left: 2px;
+  font-size: 11px;
+  transform: translateY(5%);
+}
+.linkTargetBlank:hover {
+  color: #005BD4;
 }
 
 /*# sourceMappingURL=style.css.map */

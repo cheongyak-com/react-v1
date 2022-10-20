@@ -89,7 +89,12 @@ body{
 }
 
 .linkTargetBlank{
-  &::after{
-    content: '';
+  i{
+    margin-left: 2px;
+    font-size: $font-size-smallest;
+    transform: translateY(5%);
+  }
+  &:hover{
+    color: $color-theme;
   }
 }
