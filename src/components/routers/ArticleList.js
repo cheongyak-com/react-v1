@@ -6,10 +6,10 @@ import { useEffect, useRef, useState } from 'react';
 export default function ArticleList() {
   const [ listData, setList ] = useState([]);
 
-  const baseUrl = useRef(process.env.PUBLIC_URL);
+  const baseUrl = process.env.PUBLIC_URL;
 
   useEffect(()=>{
-    axios.get(`${baseUrl.current}/db/dummyList.json`).then((json)=>{
+    axios.get(`${baseUrl}/db/dummyList.json`).then((json)=>{
       setList(json.data.articleList);
     })
   }, [])
