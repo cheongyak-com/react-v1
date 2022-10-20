@@ -1,0 +1,26 @@
+table#contentTable{
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 1px solid $color-light-gray;
+
+  tbody{
+    tr{
+      th{
+        width: 130px;
+        padding: 15px;
+        background-color: $color-white-gray;
+        border-bottom: 1px solid $color-light-gray;
+        color: $color-dark-gray;
+        font-size: $font-size-regular;
+        @include font-weight(300);
+      }
+      td{
+        border-bottom: 1px solid $color-light-gray;
+        padding: 15px;
+        color: $color-dark-gray;
+        font-size: $font-size-small;
+        @include font-weight(300);
+      }
+    }
+  }
+}

@@ -59,7 +59,7 @@
     padding-bottom: 50px;
 
     .tabMenu{
-      width: 100%;
+      width: 1180px;
       display: flex;
 
       li{
@@ -77,38 +77,12 @@
         }
       }
     }
+
     .tabBody{
       padding: 20px 0;
 
       >div{
         overflow: hidden;
-
-        table{
-          width: 100%;
-          border-collapse: collapse;
-          border-top: 1px solid $color-light-gray;
-
-          tbody{
-            tr{
-              th{
-                width: 130px;
-                padding: 15px;
-                background-color: $color-white-gray;
-                border-bottom: 1px solid $color-light-gray;
-                color: $color-dark-gray;
-                font-size: $font-size-regular;
-                @include font-weight(300);
-              }
-              td{
-                border-bottom: 1px solid $color-light-gray;
-                padding: 15px;
-                color: $color-dark-gray;
-                font-size: $font-size-small;
-                @include font-weight(300);
-              }
-            }
-          }
-        }
       }
     }
   }
