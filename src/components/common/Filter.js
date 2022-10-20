@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -7,8 +7,9 @@ export default function Filter(props) {
   const [ searchParams, setSearchParams ] = useSearchParams();
   const [ showFilter, setShowFilter ] = useState(false);
   const [ filterList, setFilterList ] = useState(null);
+  const [ param, setParam ] = useState(props.type);
+  const navigate = useNavigate();
   const baseUrl = useRef(process.env.PUBLIC_URL);
-  const param = props.type;
 
   const queries = {
     'state': searchParams.get('state') || '',
@@ -19,6 +20,10 @@ export default function Filter(props) {
 
   const handleClick = (e, key, value) => {
     e.preventDefault();
+    if (param === 'content') {
+      navigate(`/list?${key}=${value}`);
+      return;
+    }
     if (queries[key+''] !== value + '') {
       setSearchParams({...queries, [key]: value});
     } else {
@@ -28,6 +33,7 @@ export default function Filter(props) {
 
   const handleReset = (e) => {
     e.preventDefault();
+    if (param === 'content') return;
     setSearchParams({});
   }
 
@@ -36,6 +42,7 @@ export default function Filter(props) {
     axios.get(`${baseUrl.current}/db/dummyList.json`).then((json)=>{
       setFilterList(json.data.filterList);
     })
+    setParam(props.type);
   }, [])
 
   const handleFilter = () => {
