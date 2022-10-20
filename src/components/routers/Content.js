@@ -59,7 +59,7 @@ export default function Content() {
   }, [FilterList])
   //console.log(ContentData, FilterList);
   
-  return ( <Layout>
+  return ( <Layout type='content'>
     {ContentData && FilterList &&
     <div id='content' ref={frame}>
       <figure

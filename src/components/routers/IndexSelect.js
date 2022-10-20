@@ -1,11 +1,11 @@
-import Logo from "components/common/Logo";
+import Logo from 'components/common/Logo';
 import { Link } from 'react-router-dom';
 
 export default function IndexSelect() {
   return (
     <>
-      <div id="index">
-        <div className="inner">
+      <div id='index'>
+        <div className='inner'>
           <h1>
             <Logo></Logo>
             <span>청약닷컴</span>

@@ -9,9 +9,9 @@ import Content from 'components/routers/Content';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<IndexSelect />} />
-      <Route path="/list" exct="false" element={<ArticleList />} />
-      <Route path="/content" exct="false" element={<Content />} />
+      <Route path='/' element={<IndexSelect />} />
+      <Route path='/list' exct='false' element={<ArticleList />} />
+      <Route path='/content' exct='false' element={<Content />} />
     </Routes>
   );
 }

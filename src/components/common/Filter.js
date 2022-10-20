@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 
 
-export default function Filter() {
+export default function Filter(props) {
   const [ searchParams, setSearchParams ] = useSearchParams();
   const [ showFilter, setShowFilter ] = useState(false);
   const [ filterList, setFilterList ] = useState(null);
   const baseUrl = useRef(process.env.PUBLIC_URL);
-  const param = useRef(useLocation().pathname);
+  const param = props.type;
 
   const queries = {
     'state': searchParams.get('state') || '',
@@ -32,7 +32,7 @@ export default function Filter() {
   }
 
   useEffect(() => {
-    if (param === '/list' && window.innerWidth >= 1180) setShowFilter(true);
+    if (param === 'list' && window.innerWidth >= 1180) setShowFilter(true);
     axios.get(`${baseUrl.current}/db/dummyList.json`).then((json)=>{
       setFilterList(json.data.filterList);
     })
@@ -45,8 +45,8 @@ export default function Filter() {
   return (
     <>
       <i className={`btnShowFilter ${showFilter ? 'on' : null}`} onClick={handleFilter}></i>
-      <div id="filter" className={showFilter ? 'on' : null}>
-        <div className="inner">
+      <div id='filter' className={showFilter ? 'on' : null}>
+        <div className='inner'>
           <ul>
             {filterList && filterList.map((filter, i)=>{
               return (

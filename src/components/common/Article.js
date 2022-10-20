@@ -14,16 +14,16 @@ export default function Article(props) {
   
   return (
     <article>
-      <div className="pic">
+      <div className='pic'>
         <Link to={`/content?id=${props.id}`}>
           <img src={`${baseUrl.current}/img/${props.imgSrc}`} alt={props.title} />
         </Link>
       </div>
-      <div className="txt">
+      <div className='txt'>
         <h3>
           {props.title}
         </h3>
-        <div className="tags">
+        <div className='tags'>
           <span data-state={props.state}>
             {filterList && filterList[0].list[+props.state]}
           </span>

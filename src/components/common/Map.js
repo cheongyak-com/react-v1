@@ -11,7 +11,7 @@ export default function Map(props) {
       loading={<p>Maps Loading...</p>}
     >
       {naver && <NaverMap
-        mapDivId="map"
+        mapDivId='map'
         defaultCenter={{ lat: curLng[0], lng: curLng[1] }}
         defaultZoom={16}
         zoomControl={true} // 지도 zoom 허용

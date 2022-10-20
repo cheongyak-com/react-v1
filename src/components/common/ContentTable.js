@@ -4,7 +4,7 @@ export default function ContentTable(props) {
   const data = props.data;
 
   return (
-    <table id="contentTable">
+    <table id='contentTable'>
       <tbody>
         {data.state === '0' ? 
         <>
@@ -52,7 +52,7 @@ export default function ContentTable(props) {
             }}
             target='_blank'>
               {data.webSiteUrl}
-              <i className="fa-solid fa-arrow-up-right-from-square"></i>
+              <i className='fa-solid fa-arrow-up-right-from-square'></i>
             </Link>
           </td>
         </tr>

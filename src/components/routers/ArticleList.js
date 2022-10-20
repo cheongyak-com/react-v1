@@ -1,7 +1,7 @@
 import axios from 'axios';
-import Layout from "components/common/Layout";
-import Article from "components/common/Article";
-import { useEffect, useRef, useState } from 'react';
+import Layout from 'components/common/Layout';
+import Article from 'components/common/Article';
+import { useEffect, useState } from 'react';
 
 export default function ArticleList() {
   const [ listData, setList ] = useState([]);
@@ -16,9 +16,9 @@ export default function ArticleList() {
 
   
   return (
-    <Layout>
-      <div id="list">
-        <div className="inner">
+    <Layout type='list'>
+      <div id='list'>
+        <div className='inner'>
           {listData.map((data, i)=>{
             return (
               <Article key={i} 
