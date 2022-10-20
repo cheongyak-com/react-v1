@@ -26,7 +26,7 @@ export default function Content() {
     position.current = [];
     menus = frame.current.querySelectorAll('.tabBody>div');
     for (const li of menus) {
-      position.current.push(li.offsetTop);
+      position.current.push(li.offsetTop - 50);
     }
   };
 
@@ -48,7 +48,12 @@ export default function Content() {
     if (!FilterList) return;
     getMenus();
 
+    window.addEventListener('resize', ()=>{
+      getMenus();
+    })
+
     window.addEventListener('scroll', ()=>{
+      getMenus();
       acrivation();
     })
   }, [FilterList])
@@ -72,11 +77,11 @@ export default function Content() {
         </div>
       </figure>
       
-      <div className='inner'>
+      <div className={`inner 
+        ${curY >= position.current[0] ? 'menuOn' : undefined}`}
+      >
         <ul
-          className={`tabMenu 
-          ${curY >= position.current[0] ? 'on' : undefined}`}
-        >
+          className='tabMenu'>
           {tabMenus.map((menu, i)=>{
             if (i === 1 && ContentData.state !== '2') return;
             return (
@@ -93,18 +98,20 @@ export default function Content() {
           </div>
           <div className='gallery'>
             {ContentData.state === '2' && 
-              <>
+              <div className='inner'>
               <ContentPicture></ContentPicture>
               <ContentPicture></ContentPicture>
               <ContentPicture></ContentPicture>
-              </>
+              </div>
             }
           </div>
           <div className='gallery'>
+            <div className='inner'>
             <ContentPicture></ContentPicture>
             <ContentPicture></ContentPicture>
             <ContentPicture></ContentPicture>
             <ContentPicture></ContentPicture>
+            </div>
           </div>
           <div>
             <Map latLng={ContentData.latLng} naver={naver}></Map>
