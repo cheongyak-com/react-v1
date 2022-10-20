@@ -30,22 +30,18 @@ export default function Content() {
     }
   };
 
-  const acrivation = ()=>{
+  const activation = ()=>{
     const scroll = window.scrollY || window.pageYOffset;
     setCurY(scroll);
   }
 
   useEffect(()=>{
-    axios.get(`${baseUrl.current}/db/dummyList.json`).then((json)=>{
-      setContent(json.data.articleList[paramsId]);
-      setFilterList(json.data.filterList);
-    })
-    // async function fetchData() {
-    //   const result = await axios.get(`${baseUrl.current}/db/dummyList.json`);
-    //   setContent(result.data.articleList[paramsId]);
-    //   setFilterList(result.data.filterList);
-    // }
-    // fetchData();
+    async function fetchData() {
+      const result = await axios.get(`${baseUrl.current}/db/dummyList.json`);
+      setContent(result.data.articleList[paramsId]);
+      setFilterList(result.data.filterList);
+    }
+    fetchData();
   }, [paramsId])
 
   useEffect(()=>{
@@ -58,7 +54,7 @@ export default function Content() {
 
     window.addEventListener('scroll', ()=>{
       getMenus();
-      acrivation();
+      activation();
     })
   }, [FilterList])
   //console.log(ContentData, FilterList);
