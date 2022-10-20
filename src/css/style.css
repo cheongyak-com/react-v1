@@ -547,7 +547,7 @@ article:hover {
 }
 #content .inner .tabMenu li {
   flex: 1;
-  padding: 20px;
+  padding: 1.5vh;
   text-align: center;
   border-bottom: 1px solid #888;
   color: #444;
@@ -571,16 +571,22 @@ article:hover {
   border-top: 1px solid #bbb;
 }
 #content .inner .tabBody > div table tbody tr th {
-  width: 150px;
+  width: 130px;
   padding: 15px;
   background-color: #eee;
   border-bottom: 1px solid #bbb;
   color: #444;
+  font-size: 16px;
+  font-weight: 300;
+  font-variation-settings: "wght" 300;
 }
 #content .inner .tabBody > div table tbody tr td {
   border-bottom: 1px solid #bbb;
   padding: 15px;
   color: #444;
+  font-size: 12px;
+  font-weight: 300;
+  font-variation-settings: "wght" 300;
 }
 
 body {
@@ -601,6 +607,9 @@ body {
   .inner {
     width: 100%;
   }
+}
+.linkTargetBlank::after {
+  content: "";
 }
 
 /*# sourceMappingURL=style.css.map */

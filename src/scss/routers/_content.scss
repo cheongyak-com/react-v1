@@ -64,7 +64,7 @@
 
       li{
         flex: 1;
-        padding: 20px;
+        padding: 1.5vh;
         text-align: center;
         border-bottom: 1px solid $color-gray;
         color: $color-dark-gray;
@@ -91,16 +91,20 @@
           tbody{
             tr{
               th{
-                width: 150px;
+                width: 130px;
                 padding: 15px;
                 background-color: $color-white-gray;
                 border-bottom: 1px solid $color-light-gray;
                 color: $color-dark-gray;
+                font-size: $font-size-regular;
+                @include font-weight(300);
               }
               td{
                 border-bottom: 1px solid $color-light-gray;
                 padding: 15px;
                 color: $color-dark-gray;
+                font-size: $font-size-small;
+                @include font-weight(300);
               }
             }
           }

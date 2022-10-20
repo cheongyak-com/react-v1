@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import Layout from 'components/common/Layout';
 import Map from 'components/common/Map';
@@ -93,7 +93,13 @@ export default function Content() {
                   </>}
                   <tr>
                     <th>공식 사이트</th>
-                    <td>{ContentData.webSiteUrl}</td>
+                    <td>
+                      <Link className='linkTargetBlank' 
+                      to={ContentData.webSiteUrl} 
+                      target='_blank'>
+                        {ContentData.webSiteUrl}
+                      </Link>
+                    </td>
                   </tr>
                 </tbody>
               </table>

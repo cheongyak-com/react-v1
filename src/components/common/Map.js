@@ -22,9 +22,6 @@ export default function Map(props) {
       <Marker 
         position={new naver.maps.LatLng(curLng[0], curLng[1])}
         animation={naver.maps.Animation.BOUNCE}
-        onClick={() => {
-          alert('여기는 네이버 입니다.')
-        }}
       />
       </NaverMap>
       }

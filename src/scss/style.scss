@@ -87,3 +87,9 @@ body{
     width: 100%;
   }
 }
+
+.linkTargetBlank{
+  &::after{
+    content: '';
+  }
+}
