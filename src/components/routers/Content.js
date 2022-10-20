@@ -36,12 +36,16 @@ export default function Content() {
   }
 
   useEffect(()=>{
-    async function fetchData() {
-      const result = await axios.get(`${baseUrl.current}/db/dummyList.json`);
-      setContent(result.data.articleList[paramsId]);
-      setFilterList(result.data.filterList);
-    }
-    fetchData();
+    axios.get(`${baseUrl.current}/db/dummyList.json`).then((json)=>{
+      setContent(json.data.articleList[paramsId]);
+      setFilterList(json.data.filterList);
+    })
+    // async function fetchData() {
+    //   const result = await axios.get(`${baseUrl.current}/db/dummyList.json`);
+    //   setContent(result.data.articleList[paramsId]);
+    //   setFilterList(result.data.filterList);
+    // }
+    // fetchData();
   }, [paramsId])
 
   useEffect(()=>{
