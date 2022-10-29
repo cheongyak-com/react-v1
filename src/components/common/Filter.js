@@ -1,15 +1,15 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 
 export default function Filter(props) {
+
+  const filterList = useSelector((store)=> store.filterReducer.filter);
   const [ searchParams, setSearchParams ] = useSearchParams();
   const [ showFilter, setShowFilter ] = useState(false);
-  const [ filterList, setFilterList ] = useState(null);
   const [ param, setParam ] = useState(props.type);
   const navigate = useNavigate();
-  const baseUrl = useRef(process.env.PUBLIC_URL);
 
   const queries = {
     'state': searchParams.get('state') || '',
@@ -39,9 +39,6 @@ export default function Filter(props) {
 
   useEffect(() => {
     if (param === 'list' && window.innerWidth >= 1180) setShowFilter(true);
-    axios.get(`${baseUrl.current}/db/dummyList.json`).then((json)=>{
-      setFilterList(json.data.filterList);
-    })
     setParam(props.type);
   }, [])
 

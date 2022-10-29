@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import * as types from '../../redux/actionType';
+
 import Layout from 'components/common/Layout';
 import Map from 'components/common/Map';
 import ContentPicture from 'components/common/ContentPicture';
@@ -8,26 +11,30 @@ import ContentTable from 'components/common/ContentTable';
 import Scroll from 'asset/scroll';
 
 export default function Content() {
+
+  const dispatch = useDispatch();
+  const ContentData = useSelector((store)=> store.contentReducer.content);
+  const FilterList = useSelector((store)=> store.filterReducer.filter);
+
   const { naver } = window;
-  const [ ContentData, setContent ] = useState([]);
-  const [ FilterList, setFilterList ] = useState(null);
   const [ TabIndex, setTabIndex ] = useState(0);
   const [ SearchParams ] = useSearchParams();
   const baseUrl = useRef(process.env.PUBLIC_URL);
   const frame = useRef(null);
   const position = useRef([]);
   const [ curY, setCurY ] = useState(0);
-  let menus;
+  //let menus;
   
   const tabMenus = ['정보', '결과', '사진', '위치'];
   const paramsId = SearchParams.get('id');
 
   const getMenus = ()=>{
     position.current = [];
-    menus = frame.current.querySelectorAll('.tabBody>div');
+    const menus = frame.current.querySelectorAll('.tabBody>div');
     for (const li of menus) {
       position.current.push(li.offsetTop - 50);
     }
+    activation();
   };
 
   const activation = ()=>{
@@ -35,32 +42,30 @@ export default function Content() {
     setCurY(scroll);
   }
 
-  useEffect(()=>{
-    async function fetchData() {
-      const result = await axios.get(`${baseUrl.current}/db/dummyList.json`);
-      setContent(result.data.articleList[paramsId]);
-      setFilterList(result.data.filterList);
-    }
-    fetchData();
-  }, [paramsId])
+  useEffect(() => {
+    dispatch({
+      type: types.CONTENT.start,
+      option: {id: paramsId}
+    });
+    
+    return(()=>{
+      window.removeEventListener('resize', getMenus);
+      window.removeEventListener('scroll', getMenus);
+    });
+  }, [])
 
   useEffect(()=>{
     if (!FilterList) return;
     getMenus();
 
-    window.addEventListener('resize', ()=>{
-      getMenus();
-    })
+    window.addEventListener('resize', getMenus);
+    window.addEventListener('scroll', getMenus);
 
-    window.addEventListener('scroll', ()=>{
-      getMenus();
-      activation();
-    })
   }, [FilterList])
   //console.log(ContentData, FilterList);
   
   return ( <Layout type='content'>
-    {ContentData && FilterList &&
+    {ContentData && FilterList.length &&
     <div id='content' ref={frame}>
       <figure
         style={{backgroundImage: `url(${baseUrl.current}/img/${ContentData.thumbnail})`}}
