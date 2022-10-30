@@ -1,5 +1,5 @@
 {
-  "filterList": [
+  "filter": [
     { 
       "key": "state",
       "name": "분양상태",
@@ -16,7 +16,7 @@
       "list": [ "공공분양", "민간참여 공공분양", "민간분양", "임대" ]
     }
   ],
-  "articleList": [
+  "article": [
     {
       "title": "Here Comes Title1",
       "desc": "Here Comes Description1",
