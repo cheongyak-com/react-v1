@@ -19,7 +19,7 @@ function* callFilter() {
 function* returnArticle() {
   try{
     const response = yield call(getArticle);
-    yield put({type: types.ARTICLE.success, payload: response.data.article});
+    yield put({type: types.ARTICLE.success, payload: response.data});
   } catch (error) {
     yield put({type: types.ARTICLE.fail, payload: error});
   }

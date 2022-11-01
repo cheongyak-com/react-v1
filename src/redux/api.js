@@ -6,7 +6,7 @@ export const getFilter= async ()=>{
 }
 
 export const getArticle = async ()=>{
-  const url = `${process.env.PUBLIC_URL}/db/dummyList.json`;
+  const url = `http://kongnas.com:8190/api/houses`;
   return await axios.get(url);
 }
 
