@@ -4,8 +4,7 @@ import Article from 'components/common/Article';
 
 export default function ArticleList() {
   const listData = useSelector((store)=> store.articleReducer.article.data);
-  console.log(listData);
-
+  
   return (
     <Layout type='list'>
       <div id='list'>

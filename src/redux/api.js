@@ -11,7 +11,7 @@ export const getArticle = async (option)=>{
     area: option.area,
     type: option.type
   }
-  const url = `//kongnas.com:8190/api/houses`;
+  const url = `https://cheongyak.com/api/houses`;
   return await axios.get(url, {params});
 }
 
