@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const getFilter= async ()=>{
-  const url = `${process.env.PUBLIC_URL}/db/dummyList.json`;
+  const url = `${process.env.PUBLIC_URL}/db/filter.json`;
   return await axios.get(url);
 }
 
@@ -16,6 +16,6 @@ export const getArticle = async (option)=>{
 }
 
 export const getContent = async ()=>{
-  const url = `${process.env.PUBLIC_URL}/db/dummyList.json`;
+  const url = `${process.env.PUBLIC_URL}/db/filter.json`;
   return await axios.get(url);
 }
