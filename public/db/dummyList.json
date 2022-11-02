@@ -3,17 +3,30 @@
     { 
       "key": "state",
       "name": "분양상태",
-      "list": [ "분양예정", "분양중", "분양완료" ]
+      "list": {
+        "INFO": "청약정보",
+        "EXPECT": "분양예정",
+        "ING": "분양중",
+        "COMPLETE": "분양완료"
+      }
     },
     {
       "key": "area",
       "name": "지역",
-      "list": [ "검단신도시", "운정신도시" ]
+      "list": {
+        "1": "검단신도시",
+        "2": "운정신도시"
+      }
     },
     {
       "key": "type",
       "name": "분양방식",
-      "list": [ "공공분양", "민간참여 공공분양", "민간분양", "임대" ]
+      "list": {
+        "PUBLIC": "공공분양",
+        "PRIVATE": "민간분양",
+        "PRIVATE_PARTICIPATION_PUBLIC_DISTRIBUTION": "민간참여 공공분양",
+        "PUBLIC_SUPPORT_PRIVATE_RENTAL": "공공지원 민간임대"
+      }
     }
   ],
   "article": [

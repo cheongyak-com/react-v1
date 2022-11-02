@@ -57,12 +57,12 @@ export default function Filter(props) {
                 <li key={i}>
                   <span>{filter.name}</span>
                   <ul>
-                    {filter && filter.list.map((sub, j)=>{
+                    {filter && Object.keys(filter.list).map(sub=>{
                       return (
-                        <li key={j}><Link 
-                          onClick={(e)=>{handleClick(e, filter.key, j)}}
-                          className={queries[filter.key] === j + '' ? 'on' : null}
-                        >{sub}</Link></li>
+                        <li key={sub}><Link 
+                          onClick={(e)=>{handleClick(e, filter.key, sub)}}
+                          className={queries[filter.key] === sub + '' ? 'on' : null}
+                        >{filter.list[sub]}</Link></li>
                       );
                     })}
                   </ul>

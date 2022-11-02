@@ -16,9 +16,10 @@ function* callFilter() {
 }
 
 // article list
-function* returnArticle() {
+function* returnArticle(action) {
   try{
-    const response = yield call(getArticle);
+    const response = yield call(getArticle, action.option);
+    console.log(response);
     yield put({type: types.ARTICLE.success, payload: response.data});
   } catch (error) {
     yield put({type: types.ARTICLE.fail, payload: error});
