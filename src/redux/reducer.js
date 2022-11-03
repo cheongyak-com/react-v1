@@ -33,7 +33,7 @@ const articleReducer = (state = {article: []}, action)=>{
   }
 }
 
-const contentReducer = (state = {content: []}, action)=>{
+const contentReducer = (state = {content: null}, action)=>{
   switch(action.type) {
     case types.CONTENT.start:
       return state;

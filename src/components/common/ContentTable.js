@@ -10,32 +10,32 @@ export default function ContentTable(props) {
         <>
         <tr>
           <th>모집공고</th>
-          <td>{data.dateGonggo.substring(0,7)} 예정</td>
+          <td>{data.openDate} 예정</td>
         </tr>
         </> : <>
         <tr>
           <th>모집공고</th>
-          <td>{data.dateGonggo}</td>
+          <td>{data.gonggoDate}</td>
         </tr>
         <tr>
           <th>특별 공급 접수</th>
-          <td>{data.dateSpecial}</td>
+          <td>{data.specialDate}</td>
         </tr>
         <tr>
           <th>1순위 접수</th>
-          <td>{data.dateNormal1}</td>
+          <td>{data.nomal1Date}</td>
         </tr>
         <tr>
           <th>2순위 접수</th>
-          <td>{data.dateNormal2}</td>
+          <td>{data.nomal2Date}</td>
         </tr>
         <tr>
           <th>당첨자 발표</th>
-          <td>{data.dateAnnouncement}</td>
+          <td>{data.announcementDate}</td>
         </tr>
         <tr>
           <th>계약 기간</th>
-          <td>{data.dateContract}</td>
+          <td>{data.contractStartDate} - {data.contractEndDate}</td>
         </tr>
         <tr>
           <th>입주 예정</th>
@@ -45,15 +45,14 @@ export default function ContentTable(props) {
         <tr>
           <th>공식 사이트</th>
           <td>
-            <Link className='linkTargetBlank' 
-            onClick={(e)=>{
-              e.preventDefault();
-              window.open(data.webSiteUrl);
-            }}
-            target='_blank'>
-              {data.webSiteUrl}
+            <a
+              className='linkTargetBlank'
+              href={data.url}
+              target='_blank'
+            >
+              {data.url}
               <i className='fa-solid fa-arrow-up-right-from-square'></i>
-            </Link>
+            </a>
           </td>
         </tr>
       </tbody>

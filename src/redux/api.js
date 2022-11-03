@@ -15,7 +15,7 @@ export const getArticle = async (option)=>{
   return await axios.get(url, {params});
 }
 
-export const getContent = async ()=>{
-  const url = `${process.env.PUBLIC_URL}/db/filter.json`;
+export const getContent = async (option)=>{
+  const url = `https://cheongyak.com/api/houses/${option.id}`;
   return await axios.get(url);
 }

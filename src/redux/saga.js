@@ -32,7 +32,7 @@ function* callArticle() {
 function* returnContent(action) {
   try{
     const response = yield call(getContent, action.option);
-    yield put({type: types.CONTENT.success, payload: response.data.article[action.option.id]});
+    yield put({type: types.CONTENT.success, payload: response.data.data});
   } catch (error) {
     yield put({type: types.CONTENT.fail, payload: error});
   }

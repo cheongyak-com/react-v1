@@ -16,19 +16,23 @@ export default function Content() {
   const ContentData = useSelector((store)=> store.contentReducer.content);
   const FilterList = useSelector((store)=> store.filterReducer.filter);
 
+  console.log(ContentData);
+
   const { naver } = window;
   const [ TabIndex, setTabIndex ] = useState(0);
   const [ SearchParams ] = useSearchParams();
-  const baseUrl = useRef(process.env.PUBLIC_URL);
   const frame = useRef(null);
   const position = useRef([]);
   const [ curY, setCurY ] = useState(0);
   //let menus;
   
+  const baseUrl = 'https://cheongyak.com/img/house';
   const tabMenus = ['정보', '결과', '사진', '위치'];
-  const paramsId = SearchParams.get('id');
+  const paramsId = parseInt(SearchParams.get('id'));
 
   const getMenus = ()=>{
+    if (!frame.current) return;
+
     position.current = [];
     const menus = frame.current.querySelectorAll('.tabBody>div');
     for (const li of menus) {
@@ -55,28 +59,28 @@ export default function Content() {
   }, [])
 
   useEffect(()=>{
-    if (!FilterList) return;
+    if (!FilterList || !frame) return;
     getMenus();
 
     window.addEventListener('resize', getMenus);
     window.addEventListener('scroll', getMenus);
 
-  }, [FilterList])
+  }, [FilterList, frame])
   //console.log(ContentData, FilterList);
   
   return ( <Layout type='content'>
     {ContentData && FilterList.length &&
     <div id='content' ref={frame}>
       <figure
-        style={{backgroundImage: `url(${baseUrl.current}/img/${ContentData.thumbnail})`}}
+        style={{backgroundImage: `url(${baseUrl}/${ContentData.id}/${ContentData.images[0].imageFileName})`}}
       >
         <div className='txt'>
           <div className='date'>
-            {ContentData.dateGonggo}-{ContentData.dateAnnouncement} {FilterList[0].list[ContentData.state]}
+            {ContentData.gonggoDate}-{ContentData.announcementDate} {FilterList[0].list[ContentData.state]}
           </div>
-          <h1>{ContentData.title}</h1>
+          <h1>{ContentData.subject}</h1>
           <div className='tags'>
-            <span>#{FilterList[1].list[ContentData.area]}</span>
+            <span>#{FilterList[1].list[ContentData.area.id]}</span>
             <span>#{FilterList[2].list[ContentData.type]}</span>
           </div>
         </div>
@@ -88,7 +92,7 @@ export default function Content() {
         <ul
           className='tabMenu'>
           {tabMenus.map((menu, i)=>{
-            if (i === 1 && ContentData.state !== '2') return;
+            if (i === 1 && ContentData.state !== 'COMPLETE') return;
             return (
               <li key={i} 
                 className={TabIndex === i ? 'on' : undefined}
@@ -102,24 +106,26 @@ export default function Content() {
             <ContentTable data={ContentData}></ContentTable>
           </div>
           <div className='gallery'>
-            {ContentData.state === '2' && 
+            {ContentData.state === 'COMPLETE' && 
               <div className='inner'>
-              <ContentPicture></ContentPicture>
-              <ContentPicture></ContentPicture>
-              <ContentPicture></ContentPicture>
+              <ContentPicture>
+              </ContentPicture>
               </div>
             }
           </div>
           <div className='gallery'>
             <div className='inner'>
-            <ContentPicture></ContentPicture>
-            <ContentPicture></ContentPicture>
-            <ContentPicture></ContentPicture>
-            <ContentPicture></ContentPicture>
+            {ContentData.images.map(data=>{
+              return(
+                <ContentPicture>
+                  <img src={`${baseUrl}/${ContentData.id}/${data.imageFileName}`} alt={ContentData.subject} />
+                </ContentPicture>
+              );
+            })}
             </div>
           </div>
           <div>
-            <Map latLng={ContentData.latLng} naver={naver}></Map>
+            {/* <Map latLng={ContentData.latLng} naver={naver}></Map> */}
           </div>
         </div>
       </div>

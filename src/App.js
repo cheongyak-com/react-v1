@@ -1,5 +1,5 @@
 import React from 'react';
-import 'css/style.css';
+import 'scss/style.scss';
 import { Route, Routes, useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -31,10 +31,6 @@ function App() {
         area: queries.area,
         type: queries.type,
       }
-    });
-    dispatch({
-      type: types.CONTENT.start,
-      option: {id: 1}
     });
   }, [searchParams])
 
