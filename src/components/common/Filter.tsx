@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import React from 'react';
 
 
-interface IfFilter {
+interface TypeFilter {
   key: string;
   name: string;
   list: {
@@ -16,7 +16,7 @@ interface IfFilter {
   }
 }
 
-interface IfQueries {
+interface TypeQueries {
   [index: string]: string,
   state: string,
   area: string,
@@ -31,7 +31,7 @@ export default function Filter(props: { type: string; }) {
   const [ param, setParam ] = useState(props.type);
   const navigate = useNavigate();
 
-  const queries: IfQueries = {
+  const queries: TypeQueries = {
     state: searchParams.get('state') || '',
     area: searchParams.get('area') || '',
     type: searchParams.get('type') || ''
@@ -72,7 +72,7 @@ export default function Filter(props: { type: string; }) {
       <div id='filter' className={showFilter ? 'on' : undefined}>
         <div className='inner'>
           <ul>
-            {filterList && filterList.map((filter: IfFilter, i: number)=>{
+            {filterList && filterList.map((filter: TypeFilter, i: number)=>{
               return (
                 <li key={i}>
                   <span>{filter.name}</span>
