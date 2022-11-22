@@ -2,10 +2,19 @@ import { takeLatest, all, put, fork, call } from 'redux-saga/effects';
 import { getArticle, getContent, getFilter } from './api';
 import * as types from './actionType';
 
+interface TypeAction {
+  option: any,
+}
+
+interface TypeResponse {
+  data: any;
+}
+
+
 // content
 function* returnFilter() {
   try{
-    const response = yield call(getFilter);
+    const response: TypeResponse = yield call(getFilter);
     yield put({type: types.FILTER.success, payload: response.data.filter});
   } catch (error) {
     yield put({type: types.FILTER.fail, payload: error});
@@ -16,9 +25,9 @@ function* callFilter() {
 }
 
 // article list
-function* returnArticle(action) {
+function* returnArticle(action?: TypeAction) {
   try{
-    const response = yield call(getArticle, action.option);
+    const response: TypeResponse = yield call(getArticle, action?.option);
     yield put({type: types.ARTICLE.success, payload: response.data});
   } catch (error) {
     yield put({type: types.ARTICLE.fail, payload: error});
@@ -29,9 +38,9 @@ function* callArticle() {
 }
 
 // content
-function* returnContent(action) {
+function* returnContent(action?: TypeAction) {
   try{
-    const response = yield call(getContent, action.option);
+    const response: TypeResponse = yield call(getContent, action?.option);
     yield put({type: types.CONTENT.success, payload: response.data.data});
   } catch (error) {
     yield put({type: types.CONTENT.fail, payload: error});

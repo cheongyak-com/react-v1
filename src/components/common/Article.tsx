@@ -1,11 +1,22 @@
 // import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import React from 'react';
 
-export default function Article(props) {
+interface IfProps {
+  id: number;
+  imageFileName: string;
+  subject: string;
+  state: string;
+  area: string;
+  type: string;
+  children: React.ReactElement
+}
+
+export default function Article(props: IfProps) {
 
   const baseUrl = 'https://cheongyak.com/img/house';
-  const filterList = useSelector((store)=> store.filterReducer.filter);
+  const filterList = useSelector((store: any)=> store.filterReducer.filter);
 
   
   return (

@@ -1,5 +1,6 @@
-import Logo from 'components/common/Logo';
+import Logo from '../common/Logo';
 import { Link } from 'react-router-dom';
+import React from 'react';
 
 export default function IndexSelect() {
   return (

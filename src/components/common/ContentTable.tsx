@@ -1,8 +1,22 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
 
-export default function ContentTable(props) {
-  const data = props.data;
+interface Props {
+  data: {
+    state: string,
+    openDate: string,
+    gonggoDate?: string,
+    specialDate?: string,
+    nomal1Date?: string,
+    nomal2Date?: string,
+    announcementDate?: string,
+    contractStartDate?: string,
+    contractEndDate?: string,
+    dateMoveIn?: string,
+    url?: string,
+  }
+}
 
+export default function ContentTable({data}: Props) {
   return (
     <table id='contentTable'>
       <tbody>
@@ -48,7 +62,7 @@ export default function ContentTable(props) {
             <a
               className='linkTargetBlank'
               href={data.url}
-              target='_blank'
+              target='_blank' rel="noreferrer"
             >
               {data.url}
               <i className='fa-solid fa-arrow-up-right-from-square'></i>

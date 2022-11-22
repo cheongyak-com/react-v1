@@ -1,14 +1,14 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
 
-export default function Header(props) {
-  const param = props.type;
+export default function Header({type}: {type: string}) {
 
   return (
     <header>
       <div className='inner'>
         <h1>
-          <Link to={param === 'list' ? '/' : '/list'}>
+          <Link to={type === 'list' ? '/' : '/list'}>
             <Logo></Logo>
             <span>청약닷컴</span>
           </Link>

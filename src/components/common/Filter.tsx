@@ -1,37 +1,57 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import React from 'react';
 
 
-export default function Filter(props) {
+interface IfFilter {
+  key: string;
+  name: string;
+  list: {
+    [index: string]: string,
+    INFO: string;
+    EXPECT: string;
+    ING: string;
+    COMPLETE: string;
+  }
+}
 
-  const filterList = useSelector((store)=> store.filterReducer.filter);
+interface IfQueries {
+  [index: string]: string,
+  state: string,
+  area: string,
+  type: string,
+}
+
+export default function Filter(props: { type: string; }) {
+
+  const filterList = useSelector((store: any)=> store.filterReducer.filter);
   const [ searchParams, setSearchParams ] = useSearchParams();
   const [ showFilter, setShowFilter ] = useState(false);
   const [ param, setParam ] = useState(props.type);
   const navigate = useNavigate();
 
-  const queries = {
-    'state': searchParams.get('state') || '',
-    'area': searchParams.get('area') || '',
-    'type': searchParams.get('type') || ''
+  const queries: IfQueries = {
+    state: searchParams.get('state') || '',
+    area: searchParams.get('area') || '',
+    type: searchParams.get('type') || ''
   }
 
 
-  const handleClick = (e, key, value) => {
+  const handleClick = (e: React.MouseEvent, key: string, value: string) => {
     e.preventDefault();
     if (param === 'content') {
       navigate(`/list?${key}=${value}`);
       return;
     }
-    if (queries[key+''] !== value + '') {
+    if (queries[key] !== value + '') {
       setSearchParams({...queries, [key]: value});
     } else {
       setSearchParams({...queries, [key]: ''});
     }
   }
 
-  const handleReset = (e) => {
+  const handleReset = (e: React.MouseEvent) => {
     e.preventDefault();
     if (param === 'content') return;
     setSearchParams({});
@@ -40,7 +60,7 @@ export default function Filter(props) {
   useEffect(() => {
     if (param === 'list' && window.innerWidth >= 1180) setShowFilter(true);
     setParam(props.type);
-  }, [])
+  }, [param, props.type])
 
   const handleFilter = () => {
     !showFilter ? setShowFilter(true) : setShowFilter(false) ;
@@ -49,20 +69,19 @@ export default function Filter(props) {
   return (
     <>
       <i className={`btnShowFilter ${showFilter ? 'on' : null}`} onClick={handleFilter}></i>
-      <div id='filter' className={showFilter ? 'on' : null}>
+      <div id='filter' className={showFilter ? 'on' : undefined}>
         <div className='inner'>
           <ul>
-            {filterList && filterList.map((filter, i)=>{
+            {filterList && filterList.map((filter: IfFilter, i: number)=>{
               return (
                 <li key={i}>
                   <span>{filter.name}</span>
                   <ul>
-                    {filter && Object.keys(filter.list).map(sub=>{
+                    {filter && Object.keys(filter.list).map((sub: string)=>{
                       return (
                         <li key={sub}><Link 
-                          onClick={(e)=>{handleClick(e, filter.key, sub)}}
-                          className={queries[filter.key] === sub + '' ? 'on' : null}
-                        >{filter.list[sub]}</Link></li>
+                          onClick={(e) => { handleClick(e, filter.key, sub); } }
+                          className={queries[filter.key] === sub + '' ? 'on' : undefined} to={'#'}>{filter.list[sub]}</Link></li>
                       );
                     })}
                   </ul>
@@ -70,7 +89,7 @@ export default function Filter(props) {
               );
             })}
           </ul>
-          <Link onClick={handleReset} className='btnResetFilter'>초기화</Link>
+          <Link onClick={handleReset} className='btnResetFilter' to={'#'}>초기화</Link>
         </div>
       </div>
     </>

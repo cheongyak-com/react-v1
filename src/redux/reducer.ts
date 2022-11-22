@@ -1,7 +1,12 @@
 import { combineReducers } from 'redux';
 import * as types from './actionType';
 
-const filterReducer = (state = {filter: []}, action)=>{
+interface TypeAction {
+  type: string,
+  payload: JSON,
+}
+
+const filterReducer = (state = {filter: []}, action: TypeAction)=>{
   switch(action.type) {
     case types.FILTER.start:
       return state;
@@ -17,7 +22,7 @@ const filterReducer = (state = {filter: []}, action)=>{
   }
 }
 
-const articleReducer = (state = {article: []}, action)=>{
+const articleReducer = (state = {article: []}, action: TypeAction)=>{
   switch(action.type) {
     case types.ARTICLE.start:
       return state;
@@ -33,7 +38,7 @@ const articleReducer = (state = {article: []}, action)=>{
   }
 }
 
-const contentReducer = (state = {content: null}, action)=>{
+const contentReducer = (state = {content: null}, action: TypeAction)=>{
   switch(action.type) {
     case types.CONTENT.start:
       return state;

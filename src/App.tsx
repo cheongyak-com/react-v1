@@ -1,26 +1,27 @@
-import React from 'react';
-import 'scss/style.scss';
+import './scss/style.scss';
 import { Route, Routes, useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import * as types from './redux/actionType';
 
 // routers
-import IndexSelect from 'components/routers/IndexSelect';
-import ArticleList from 'components/routers/ArticleList';
-import Content from 'components/routers/Content';
+import IndexSelect from './components/routers/IndexSelect';
+import ArticleList from './components/routers/ArticleList';
+import Content from './components/routers/Content';
+import React from 'react';
 
 
 function App() {
   const dispatch = useDispatch();
-  const [ searchParams, setSearchParams ] = useSearchParams();
-  const queries = {
-    'state': searchParams.get('state') || '',
-    'area': searchParams.get('area') || '',
-    'type': searchParams.get('type') || ''
-  }
+  const [ searchParams ] = useSearchParams();
 
   useEffect(() => {
+    const queries = {
+      'state': searchParams.get('state') || '',
+      'area': searchParams.get('area') || '',
+      'type': searchParams.get('type') || ''
+    }
+    
     dispatch({
       type: types.FILTER.start,
     });
@@ -32,13 +33,13 @@ function App() {
         type: queries.type,
       }
     });
-  }, [searchParams])
+  }, [searchParams, dispatch])
 
   return (
     <Routes>
       <Route path='/' element={<IndexSelect />} />
-      <Route path='/list' exct='false' element={<ArticleList />} />
-      <Route path='/content' exct='false' element={<Content />} />
+      <Route path='/list/*' element={<ArticleList />} />
+      <Route path='/content/*' element={<Content />} />
     </Routes>
   );
 }

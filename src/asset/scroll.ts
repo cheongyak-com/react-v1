@@ -1,8 +1,8 @@
 export default function Scroll(selectedY = 0) {
-  let globalId;
+  let globalId: number;
   const startTime = performance.now();
 
-  function render(requestTime) {
+  function render(requestTime: number) {
 
     const curY = window.scrollY || window.pageYOffset;
     if (curY === selectedY) {

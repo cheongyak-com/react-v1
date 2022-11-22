@@ -1,40 +1,43 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import * as types from '../../redux/actionType';
 
-import Layout from 'components/common/Layout';
-import Map from 'components/common/Map';
-import ContentPicture from 'components/common/ContentPicture';
-import ContentTable from 'components/common/ContentTable';
-import Scroll from 'asset/scroll';
+import Layout from '../common/Layout';
+//import Map from '../common/Map';
+import ContentPicture from '../common/ContentPicture';
+import ContentTable from '../common/ContentTable';
+import Scroll from '../../asset/scroll';
+import React from 'react';
 
 export default function Content() {
 
   const dispatch = useDispatch();
-  const ContentData = useSelector((store)=> store.contentReducer.content);
-  const FilterList = useSelector((store)=> store.filterReducer.filter);
+  const ContentData = useSelector((store:any)=> store.contentReducer.content);
+  const FilterList = useSelector((store:any)=> store.filterReducer.filter);
 
   console.log(ContentData);
 
-  const { naver } = window;
+  //const { naver } = window;
   const [ TabIndex, setTabIndex ] = useState(0);
   const [ SearchParams ] = useSearchParams();
-  const frame = useRef(null);
-  const position = useRef([]);
+  const frame = useRef<HTMLDivElement>(null);
+  const position = useRef<number[]>([]);
   const [ curY, setCurY ] = useState(0);
   //let menus;
   
   const baseUrl = 'https://cheongyak.com/img/house';
   const tabMenus = ['정보', '결과', '사진', '위치'];
-  const paramsId = parseInt(SearchParams.get('id'));
+  const paramsValue = SearchParams.get('id') || '';
+  const paramsId = parseInt(paramsValue, 10);
 
-  const getMenus = ()=>{
+  const getMenus = () => {
     if (!frame.current) return;
 
     position.current = [];
-    const menus = frame.current.querySelectorAll('.tabBody>div');
+    const menus = frame.current.querySelectorAll<HTMLElement>('.tabBody>div');
     for (const li of menus) {
       position.current.push(li.offsetTop - 50);
     }
@@ -56,7 +59,7 @@ export default function Content() {
       window.removeEventListener('resize', getMenus);
       window.removeEventListener('scroll', getMenus);
     });
-  }, [])
+  }, [paramsId])
 
   useEffect(()=>{
     if (!FilterList || !frame) return;
@@ -92,7 +95,7 @@ export default function Content() {
         <ul
           className='tabMenu'>
           {tabMenus.map((menu, i)=>{
-            if (i === 1 && ContentData.state !== 'COMPLETE') return;
+            if (i === 1 && ContentData.state !== 'COMPLETE') return <></>;
             return (
               <li key={i} 
                 className={TabIndex === i ? 'on' : undefined}
@@ -108,14 +111,13 @@ export default function Content() {
           <div className='gallery'>
             {ContentData.state === 'COMPLETE' && 
               <div className='inner'>
-              <ContentPicture>
-              </ContentPicture>
+              <ContentPicture />
               </div>
             }
           </div>
           <div className='gallery'>
             <div className='inner'>
-            {ContentData.images.map(data=>{
+            {ContentData.images.map((data: {imageFileName: string})=>{
               return(
                 <ContentPicture>
                   <img src={`${baseUrl}/${ContentData.id}/${data.imageFileName}`} alt={ContentData.subject} />

@@ -1,15 +1,30 @@
 import { useSelector } from 'react-redux';
-import Layout from 'components/common/Layout';
-import Article from 'components/common/Article';
+import Layout from '../common/Layout';
+import Article from '../common/Article';
+import React from 'react';
+
+interface IfArticle {  
+  id: number,
+  subject: string,
+  image:{
+    imageFileName: string,
+  },
+  state: string,
+  area: {
+    id: string
+  },
+  type: string,
+  desc: React.ReactElement,
+}
 
 export default function ArticleList() {
-  const listData = useSelector((store)=> store.articleReducer.article.data);
+  const listData = useSelector((store: any)=> store.articleReducer.article.data);
   
   return (
     <Layout type='list'>
       <div id='list'>
         <div className='inner'>
-          {(listData && listData?.length) ? listData.map(data=>{
+          {(listData && listData?.length) ? listData.map((data: IfArticle)=>{
             return (
               <Article key={data.id} 
                 id={data.id} 
