@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+/.next
 
 # testing
 /coverage
@@ -25,3 +26,6 @@ yarn-error.log*
 # webpack
 /config
 /scripts
+
+# env
+next-env.d.ts

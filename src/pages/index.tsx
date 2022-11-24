@@ -1,8 +1,9 @@
-import Logo from '../common/Logo';
+import { NextPage } from 'next';
 import Link from 'next/link';
 import React from 'react';
+import Logo from '../components/common/Logo';
 
-export default function IndexSelect() {
+const IndexPage: NextPage = function () {
   return (
     <>
       <div id='index'>
@@ -28,4 +29,6 @@ export default function IndexSelect() {
       </div>
     </>
   );
-}
+};
+
+export default IndexPage;

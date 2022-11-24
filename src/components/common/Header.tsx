@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import Logo from './Logo';
 
 export default function Header({type}: {type: string}) {
@@ -8,7 +8,7 @@ export default function Header({type}: {type: string}) {
     <header>
       <div className='inner'>
         <h1>
-          <Link to={type === 'list' ? '/' : '/list'}>
+          <Link href={type === 'list' ? '/' : '/list'}>
             <Logo></Logo>
             <span>청약닷컴</span>
           </Link>
